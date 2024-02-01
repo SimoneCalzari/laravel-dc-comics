@@ -31,7 +31,8 @@
                             <td>
                                 {{-- se in show del controller passo solo l'id non posso usare la route qua e devo scriverlo tipo a mano --}}
                                 {{-- <a href="{{ "/comics/{$comic['id']}" }}">Go to details</a> --}}
-                                <a href="{{ route('comics.show', $comic->id) }}">Go to Details</a>
+                                <a href="{{ route('comics.show', $comic->id) }}" class="text-decoration-none">Go to
+                                    Details</a>
                             </td>
                         </tr>
                     @endforeach

@@ -1,3 +1,3 @@
 # LARAVEL DC COMICS CRUD
 
--   TO DO //
+Esercitazione sull'uso delle CRUD in laravel.

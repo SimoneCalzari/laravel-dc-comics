@@ -5,7 +5,12 @@
     <!-- MAIN -->
     <main>
         <div class="container">
-            <h2 class="text-center py-2">General Comics List</h2>
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="text-center py-2">General Comics List</h2>
+                <button class="btn btn-primary">
+                    <a href="{{ route('comics.create') }}" class="text-white text-decoration-none">Add a Comic</a>
+                </button>
+            </div>
             <table class="table table-bordered border-primary">
                 <thead>
                     <tr>

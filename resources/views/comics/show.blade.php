@@ -15,12 +15,18 @@
                     <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="w-100">
                 </div>
                 <div class="col-7">
-                    <h5>Description</h5>
-                    <p>{{ $comic['description'] }}</p>
-                    <h5>Artists</h5>
-                    <p>{{ implode(', ', explode(',', $comic['artists'])) }}.</p>
-                    <h5>Writers</h5>
-                    <p>{{ implode(', ', explode(',', $comic['writers'])) }}.</p>
+                    <h5 class="mb-1">Title</h5>
+                    <p class="mb-3 fs-6">{{ $comic['title'] }}</p>
+                    <h6 class="mb-1">Series</h6>
+                    <p class="mb-3 fs-6">{{ $comic['series'] }}</p>
+                    <h6 class="mb-1">Type</h6>
+                    <p class="mb-3 fs-6">{{ $comic['type'] }}</p>
+                    <h6 class="mb-1">Description</h6>
+                    <p class="mb-3 fs-6">{{ $comic['description'] }}</p>
+                    <h6 class="mb-1">Artists</h6>
+                    <p class="mb-3 fs-6">{{ implode(', ', explode(',', $comic['artists'])) }}</p>
+                    <h6 class="mb-1">Writers</h6>
+                    <p class="mb-3 fs-6">{{ implode(', ', explode(',', $comic['writers'])) }}</p>
                 </div>
             </div>
         </div>

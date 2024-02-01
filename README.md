@@ -1,3 +1,3 @@
-# TEMPLATE LARAVEL
+# LARAVEL DC COMICS CRUD
 
-Template di Laravel con Bootsrap e Sass
+-   TO DO //

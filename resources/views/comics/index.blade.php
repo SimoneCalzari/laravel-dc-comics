@@ -20,6 +20,7 @@
                         <th>Series</th>
                         <th>Details</th>
                         <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,14 @@
                             </td>
                             <td>
                                 <a href="{{ route('comics.edit', $comic) }}" class="text-decoration-none">Edit Comic</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete Comic</button>
+
+                                </form>
                             </td>
                         </tr>
                     @endforeach

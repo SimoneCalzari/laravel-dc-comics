@@ -38,7 +38,6 @@ class ComicsController extends Controller
         $comic->thumb = $data_received['thumb'];
         $comic->price = floatval($data_received['price']);
         $comic->series = $data_received['series'];
-        // sembra laravel gestisca formati di date ricevuti diversi da quelli che accetterebbe il rdbms
         $comic->sale_date = $data_received['sale_date'];
         $comic->type = $data_received['type'];
         $comic->artists =  $data_received['artists'];
@@ -53,8 +52,6 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        // $comic = Comic::find($id);
-
         return view('comics.show', compact('comic'));
     }
 
@@ -78,8 +75,9 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

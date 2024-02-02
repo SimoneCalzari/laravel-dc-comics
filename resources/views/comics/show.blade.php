@@ -21,6 +21,10 @@
                     <p class="mb-3 fs-6">{{ $comic['series'] }}</p>
                     <h6 class="mb-1">Type</h6>
                     <p class="mb-3 fs-6">{{ $comic['type'] }}</p>
+                    <h6 class="mb-1">Price</h6>
+                    <p class="mb-3 fs-6">{{ $comic['price'] }} $</p>
+                    <h6 class="mb-1">Sale Date</h6>
+                    <p class="mb-3 fs-6">{{ $comic['sale_date'] }}</p>
                     <h6 class="mb-1">Description</h6>
                     <p class="mb-3 fs-6">{{ $comic['description'] }}</p>
                     <h6 class="mb-1">Artists</h6>

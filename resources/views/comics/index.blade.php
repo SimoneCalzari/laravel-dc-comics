@@ -18,10 +18,8 @@
                         <th>Id</th>
                         <th>Title</th>
                         <th>Series</th>
-                        <th>Type</th>
-                        <th>Price</th>
-                        <th>Sale Date</th>
                         <th>Details</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,14 +28,12 @@
                             <td>{{ $comic['id'] }}</td>
                             <td>{{ $comic['title'] }}</td>
                             <td>{{ $comic['series'] }}</td>
-                            <td>{{ $comic['type'] }}</td>
-                            <td>{{ $comic['price'] }} $</td>
-                            <td>{{ $comic['sale_date'] }}</td>
                             <td>
-                                {{-- se in show del controller passo solo l'id non posso usare la route qua e devo scriverlo tipo a mano --}}
-                                {{-- <a href="{{ "/comics/{$comic['id']}" }}">Go to details</a> --}}
-                                <a href="{{ route('comics.show', $comic->id) }}" class="text-decoration-none">Go to
+                                <a href="{{ route('comics.show', $comic) }}" class="text-decoration-none">Go to
                                     Details</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('comics.edit', $comic) }}" class="text-decoration-none">Edit Comic</a>
                             </td>
                         </tr>
                     @endforeach

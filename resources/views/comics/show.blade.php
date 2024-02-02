@@ -6,8 +6,9 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <h2 class="text-center py-2">{{ $comic['title'] }}</h2>
-                <button class="btn btn-primary">
-                    <a href="{{ route('comics.index') }}" class="text-white text-decoration-none">Back to Comics List</a>
+                <button class="btn btn-primary p-0">
+                    <a href="{{ route('comics.index') }}" class="text-white text-decoration-none d-block py-2 px-3">Back to
+                        Comics List</a>
                 </button>
             </div>
             <div class="row">

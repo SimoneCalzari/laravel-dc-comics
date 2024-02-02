@@ -2,15 +2,18 @@
 
 @section('main')
     <!-- MAIN -->
-    <main>
+    <main class="pt-1 pb-4">
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
+            <!-- TITOLO COMIC E BUTTON PER TORNARE PAGINA COMICS -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
                 <h2 class="text-center py-2">{{ $comic['title'] }}</h2>
                 <button class="btn btn-primary p-0">
                     <a href="{{ route('comics.index') }}" class="text-white text-decoration-none d-block py-2 px-3">Back to
                         Comics List</a>
                 </button>
             </div>
+            <!-- /TITOLO COMIC E BUTTON PER TORNARE PAGINA COMICS -->
+            <!-- IMMAGINE E DATI DI DETTAGLIO COMIC -->
             <div class="row">
                 <div class="col-5">
                     <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="w-100">
@@ -34,6 +37,7 @@
                     <p class="mb-3 fs-6">{{ implode(', ', explode(',', $comic['writers'])) }}</p>
                 </div>
             </div>
+            <!-- IMMAGINE E DATI DI DETTAGLIO COMIC -->
         </div>
     </main>
     <!-- /MAIN -->

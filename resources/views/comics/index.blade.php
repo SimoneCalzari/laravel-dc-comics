@@ -26,6 +26,7 @@
                         <th>Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        <th>Prova</th>
                     </tr>
                 </thead>
                 <!-- /TABELLA HEAD -->
@@ -97,12 +98,31 @@
                                 <!-- /FORM CANCELLAZIONE RIGA  -->
                             </td>
                             <!-- /COLONNA CON PULSANTE E MODALE PER CANCELLAZIONE RIGA CORRENTE -->
+                            <td>
+                                <!-- PROVA -->
+                                <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-success my-button">Prova Modale</button>
+                                    <div class="my-modale d-none" id="my-modale-{{ $loop->index }}">
+                                        <div class="my-alert p-4 rounded">
+                                            <p> Are you sure you want to delete {{ $comic['title'] }}?</p>
+                                            <div class="text-end">
+                                                <button class="btn btn-primary go-back py-1">No</button>
+                                                <button type="submit" class="btn btn-danger py-1 proceed">Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- /PROVA -->
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
                 <!-- /TABELLA BODY -->
             </table>
             <!-- /TABELLA -->
+
         </div>
     </main>
     <!-- /MAIN -->

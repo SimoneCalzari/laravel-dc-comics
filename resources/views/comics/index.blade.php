@@ -111,13 +111,17 @@
                                     <!--  MODALE -->
                                     <div class="my-modale d-none" id="my-modale-{{ $loop->index }}">
                                         <div class="my-alert p-4 rounded">
+                                            <div class="title d-flex justify-content-between">
+                                                <h5>Confirmation Comic Delete</h5>
+                                                <div class="btn-close" role="button"></div>
+                                            </div>
                                             <p> Are you sure you want to delete {{ $comic['title'] }}?</p>
-                                            <div class="text-end">
+                                            <div class=" text-end">
                                                 <!-- BUTTON CHE CHIUDE LA MODALE -->
                                                 <div class="btn btn-primary go-back py-1">No</div>
                                                 <!-- /BUTTON CHE CHIUDE LA MODALE -->
                                                 <!-- BUTTON SUBMIT FORM PER CANCELLARE RIGA -->
-                                                <button type="submit" class="btn btn-danger py-1 proceed ms-2">Yes</button>
+                                                <button type="submit" class="btn btn-danger py-1 ms-2">Yes</button>
                                                 <!-- /BUTTON SUBMIT FORM PER CANCELLARE RIGA -->
                                             </div>
                                         </div>

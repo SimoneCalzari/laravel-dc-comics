@@ -18,6 +18,10 @@ buttons.forEach((button, index) => {
     const myModale = document.getElementById(`my-modale-${index}`);
     // seleziono il button no dell alert che chiude la modale
     const myNo = document.querySelector(`#my-modale-${index} .go-back`);
+    // seleziono il button X dell alert che chiude la modale
+    const myCloseModal = document.querySelector(
+        `#my-modale-${index} .btn-close`
+    );
 
     // evento sul button che apre la modale
     button.addEventListener("click", function () {
@@ -25,6 +29,10 @@ buttons.forEach((button, index) => {
     });
     // evento sul pulsante no che chiude la modale
     myNo.addEventListener("click", function () {
+        myModale.classList.toggle("d-none");
+    });
+    // evento sul pulsante x che chiude la modale
+    myCloseModal.addEventListener("click", function () {
         myModale.classList.toggle("d-none");
     });
     // evento sulla modale che chiude se stessa, però con condizione per dire se clicco direttamente su di lei chiuditi mentre se è su un contenitore figlio la chiusura non avviene

@@ -26,7 +26,7 @@
                         <th>Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Prova</th>
+                        {{-- <th>Prova</th> --}}
                     </tr>
                 </thead>
                 <!-- /TABELLA HEAD -->
@@ -51,8 +51,9 @@
                                 </a>
                             </td>
                             <!-- /COLONNA CON LINK PER CAMBIARE DATI DELLA RIGA CORRENTE -->
-                            <!-- COLONNA CON PULSANTE E MODALE PER CANCELLAZIONE RIGA CORRENTE  -->
-                            <td>
+                            <!-- COLONNA CON FORM E MODALE CON CSS E JS TUTTO DI BOOSTRAP -->
+                            {{-- <td>
+
                                 <!-- FORM CANCELLAZIONE RIGA  -->
                                 <form action="{{ route('comics.destroy', $comic) }}" method="POST">
                                     @csrf
@@ -96,33 +97,42 @@
                                     <!-- /MODALE -->
                                 </form>
                                 <!-- /FORM CANCELLAZIONE RIGA  -->
-                            </td>
-                            <!-- /COLONNA CON PULSANTE E MODALE PER CANCELLAZIONE RIGA CORRENTE -->
+                            </td> --}}
+                            <!-- /COLONNA CON FORM E MODALE CON CSS E JS TUTTO DI BOOSTRAP -->
+                            <!-- COLONNA CON FORM E MODALE CON MIO CSS E JS -->
                             <td>
-                                <!-- PROVA -->
+                                <!-- FORM CANCELLAZIONE RIGA  -->
                                 <form action="{{ route('comics.destroy', $comic) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-success my-button">Prova Modale</button>
+                                    <!-- BUTTON CHE APRE LA MODALE -->
+                                    <div class="btn btn-danger my-button">Delet Comic</div>
+                                    <!-- /BUTTON CHE APRE LA MODALE -->
+                                    <!--  MODALE -->
                                     <div class="my-modale d-none" id="my-modale-{{ $loop->index }}">
                                         <div class="my-alert p-4 rounded">
                                             <p> Are you sure you want to delete {{ $comic['title'] }}?</p>
                                             <div class="text-end">
-                                                <button class="btn btn-primary go-back py-1">No</button>
-                                                <button type="submit" class="btn btn-danger py-1 proceed">Yes</button>
+                                                <!-- BUTTON CHE CHIUDE LA MODALE -->
+                                                <div class="btn btn-primary go-back py-1">No</div>
+                                                <!-- /BUTTON CHE CHIUDE LA MODALE -->
+                                                <!-- BUTTON SUBMIT FORM PER CANCELLARE RIGA -->
+                                                <button type="submit" class="btn btn-danger py-1 proceed ms-2">Yes</button>
+                                                <!-- /BUTTON SUBMIT FORM PER CANCELLARE RIGA -->
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- /MODALE -->
                                 </form>
-                                <!-- /PROVA -->
+                                <!-- /FORM CANCELLAZIONE RIGA  -->
                             </td>
+                            <!-- COLONNA CON FORM E MODALE CON MIO CSS E JS -->
                         </tr>
                     @endforeach
                 </tbody>
                 <!-- /TABELLA BODY -->
             </table>
             <!-- /TABELLA -->
-
         </div>
     </main>
     <!-- /MAIN -->

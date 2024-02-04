@@ -9,34 +9,27 @@ import * as bootstrap from "bootstrap";
 // dico a vite di processare le immagini nella cartella resources/img/
 import.meta.glob(["../img/**"]);
 
+// seleziono tutti i buttons che mi aprono le varie modali, ottengo una node list
 const buttons = document.querySelectorAll(".my-button");
-console.log(buttons);
 
+// ciclo sulla node list
 buttons.forEach((button, index) => {
+    // seleziono la modale contenuta nel form con ogni button
     const myModale = document.getElementById(`my-modale-${index}`);
-    const myAlert = document.querySelector(`#my-modale-${index} .my-alert`);
-    const myNo = document.querySelector(
-        `#my-modale-${index} .my-alert .go-back`
-    );
-    const myYes = document.querySelector(
-        `#my-modale-${index} .my-alert .proceed`
-    );
-    console.log(myAlert);
-    button.addEventListener("click", function (e) {
-        e.preventDefault();
-        myModale.classList.toggle("d-none");
-    });
-    myNo.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        myModale.classList.toggle("d-none");
-    });
+    // seleziono il button no dell alert che chiude la modale
+    const myNo = document.querySelector(`#my-modale-${index} .go-back`);
 
-    myYes.addEventListener("click", function (e) {
-        e.stopPropagation();
+    // evento sul button che apre la modale
+    button.addEventListener("click", function () {
+        myModale.classList.toggle("d-none");
     });
+    // evento sul pulsante no che chiude la modale
+    myNo.addEventListener("click", function () {
+        myModale.classList.toggle("d-none");
+    });
+    // evento sulla modale che chiude se stessa, però con condizione per dire se clicco direttamente su di lei chiuditi mentre se è su un contenitore figlio la chiusura non avviene
     myModale.addEventListener("click", function (e) {
-        if (e.target !== myAlert) {
+        if (e.target.contains(myModale)) {
             myModale.classList.toggle("d-none");
         }
     });

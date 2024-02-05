@@ -16,26 +16,39 @@
             <form method="POST" action="{{ route('comics.update', $comic) }}">
                 @csrf
                 @method('PUT')
+
+                {{-- ERRORI LARAVEL --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{-- ERRORI LARAVEL --}}
+
                 <div class="row">
                     <div class="mb-3 col">
                         <!-- TITOLO -->
                         <label for="title" class="form-label">Title</label>
                         <input name="title" type="text" class="form-control" id="title" placeholder="Insert title"
-                            value="{{ $comic['title'] }}">
+                            value="{{ old('title', $comic['title']) }}">
                     </div>
                     <!-- TITOLO -->
                     <!-- SERIES -->
                     <div class="mb-3 col">
                         <label for="series" class="form-label">Series</label>
                         <input name="series" type="text" class="form-control" id="series" placeholder="Insert series"
-                            value="{{ $comic['series'] }}">
+                            value="{{ old('series', $comic['series']) }}">
                     </div>
                     <!-- /SERIES -->
                     <!-- TYPE -->
                     <div class="mb-3 col">
                         <label for="type" class="form-label">Type</label>
                         <input name="type" type="text" class="form-control" id="type" placeholder="Insert type"
-                            value="{{ $comic['type'] }}">
+                            value="{{ old('type', $comic['type']) }}">
                     </div>
                     <!-- /TYPE -->
                 </div>
@@ -44,21 +57,21 @@
                     <div class="mb-3 col">
                         <label for="thumb" class="form-label">Thumb</label>
                         <input name="thumb" type="text" class="form-control" id="thumb" placeholder="Insert thumb"
-                            value="{{ $comic['thumb'] }}">
+                            value="{{ old('thumb', $comic['thumb']) }}">
                     </div>
                     <!-- /THUMB -->
                     <!-- SALE DATE -->
                     <div class="mb-3 col">
                         <label for="sale_date" class="form-label">Sale Date</label>
                         <input name="sale_date" type="date" class="form-control" id="sale_date"
-                            placeholder="Insert Sale Date" value="{{ $comic['sale_date'] }}">
+                            placeholder="Insert Sale Date" value="{{ old('sale_date', $comic['sale_date']) }}">
                     </div>
                     <!-- /SALE DATE -->
                     <!-- PRICE -->
                     <div class="mb-3 col">
                         <label for="price" class="form-label">Price</label>
                         <input name="price" type="number" class="form-control" id="price" placeholder="Insert price"
-                            step="0.01" value="{{ $comic['price'] }}">
+                            step="0.01" value="{{ old('price', $comic['price']) }}">
                     </div>
                     <!-- /PRICE -->
                 </div>
@@ -67,21 +80,21 @@
                     <div class="mb-3 col">
                         <label for="artists" class="form-label">Artists</label>
                         <input name="artists" type="text" class="form-control" id="artists"
-                            placeholder="Insert Artists" value="{{ $comic['artists'] }}">
+                            placeholder="Insert Artists" value="{{ old('artists', $comic['artists']) }}">
                     </div>
                     <!-- /ARTISTS -->
                     <!-- WRITERS -->
                     <div class="mb-3 col">
                         <label for="writers" class="form-label">Writers</label>
                         <input name="writers" type="text" class="form-control" id="writers"
-                            placeholder="Insert Writers" value="{{ $comic['writers'] }}">
+                            placeholder="Insert Writers" value="{{ old('writers', $comic['writers']) }}">
                     </div>
                     <!-- /WRITERS -->
                 </div>
                 <!-- DESCRIPTION -->
                 <label for="description" class="mb-2">Description</label>
                 <textarea class="form-control mb-3" placeholder="Leave your description" id="description" name="description"
-                    style="height: 200px">{{ $comic['description'] }}</textarea>
+                    style="height: 200px">{{ old('description', $comic['description']) }}</textarea>
                 <!-- /DESCRIPTION -->
                 <!-- SUBMIT  -->
                 <button type="submit" class="btn btn-primary">Submit</button>

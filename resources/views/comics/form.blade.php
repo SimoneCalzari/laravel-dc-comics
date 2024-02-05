@@ -17,24 +17,39 @@
             <!-- FORM PER AGGIUNGERE COMIC AL DB -->
             <form method="POST" action="{{ route('comics.store') }}">
                 @csrf
+
+                {{-- ERRORI LARAVEL --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{-- ERRORI LARAVEL --}}
+
                 <div class="row">
                     <!-- TITOLO -->
                     <div class="mb-3 col">
                         <label for="title" class="form-label">Title</label>
-                        <input name="title" type="text" class="form-control" id="title" placeholder="Insert title">
+                        <input name="title" type="text" class="form-control" id="title" placeholder="Insert title"
+                            required value='{{ old('title') }}'>
                     </div>
                     <!-- /TITOLO -->
                     <!-- SERIES -->
                     <div class="mb-3 col">
                         <label for="series" class="form-label">Series</label>
-                        <input name="series" type="text" class="form-control" id="series"
-                            placeholder="Insert series">
+                        <input name="series" type="text" class="form-control" id="series" placeholder="Insert series"
+                            required value='{{ old('series') }}'>
                     </div>
                     <!-- /SERIES -->
                     <!-- TYPE -->
                     <div class="mb-3 col">
                         <label for="type" class="form-label">Type</label>
-                        <input name="type" type="text" class="form-control" id="type" placeholder="Insert type">
+                        <input name="type" type="text" class="form-control" id="type" placeholder="Insert type"
+                            required value='{{ old('type') }}'>
                     </div>
                     <!-- /TYPE -->
                 </div>
@@ -42,21 +57,22 @@
                     <!-- THUMB -->
                     <div class="mb-3 col">
                         <label for="thumb" class="form-label">Thumb</label>
-                        <input name="thumb" type="text" class="form-control" id="thumb" placeholder="Insert thumb">
+                        <input name="thumb" type="text" class="form-control" id="thumb" placeholder="Insert thumb"
+                            required value='{{ old('thumb') }}'>
                     </div>
                     <!-- /THUMB -->
                     <!-- SALE DATE -->
                     <div class="mb-3 col">
                         <label for="sale_date" class="form-label">Sale Date</label>
                         <input name="sale_date" type="date" class="form-control" id="sale_date"
-                            placeholder="Insert Sale Date">
+                            placeholder="Insert Sale Date" required value='{{ old('sale_date') }}'>
                     </div>
                     <!-- /SALE DATE -->
                     <!-- PRICE -->
                     <div class="mb-3 col">
                         <label for="price" class="form-label">Price</label>
                         <input name="price" type="number" class="form-control" id="price" placeholder="Insert price"
-                            step="0.01">
+                            step="0.01" required value='{{ old('price') }}'>
                     </div>
                     <!-- /PRICE -->
                 </div>
@@ -65,21 +81,21 @@
                     <div class="mb-3 col">
                         <label for="artists" class="form-label">Artists</label>
                         <input name="artists" type="text" class="form-control" id="artists"
-                            placeholder="Insert Artists">
+                            placeholder="Insert Artists" required value='{{ old('artists') }}'>
                     </div>
                     <!-- /ARTISTS -->
                     <!-- WRITERS -->
                     <div class="mb-3 col">
                         <label for="writers" class="form-label">Writers</label>
                         <input name="writers" type="text" class="form-control" id="writers"
-                            placeholder="Insert Writers">
+                            placeholder="Insert Writers" required value='{{ old('writers') }}'>
                     </div>
                     <!-- /WRITERS -->
                 </div>
                 <!-- DESCRIPTION -->
                 <label for="description" class="mb-2">Description</label>
                 <textarea class="form-control mb-3" placeholder="Leave your description" id="description" name="description"
-                    style="height: 200px"></textarea>
+                    style="height: 200px" required>{{ old('description') }}</textarea>
                 <!-- /DESCRIPTION -->
                 <!-- SUBMIT E RESET -->
                 <button type="submit" class="btn btn-primary">Submit</button>

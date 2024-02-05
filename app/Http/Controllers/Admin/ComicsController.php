@@ -41,7 +41,27 @@ class ComicsController extends Controller
             'type' => 'required|max:50',
             'artists' => 'required|max:200',
             'writers' => 'required|max:200',
+        ], [
+            'title' => 'Il titolo è obbligatorio',
+            'title.max' => 'Per il titolo hai superato il limite di caratteri massimo consentito(:max)',
+            'description' => 'La descrizione è obbligatoria',
+            'description.max' => 'Per la descrizione hai superato il limite di caratteri massimo consentito(:max)',
+            'thumb' => 'L\'immagine è obbligatoria',
+            'thumb.url' => 'L\'immagine deve essere fornita come URL',
+            'price' => 'Il prezzo è obbligatorio',
+            'price.decimal' => 'Il prezzo deve essere fornito con :decimal decimali',
+            'series' => 'La serie del fumetto è obbligatoria',
+            'series.max' => 'Per la serie del fumetto hai superato il limite di caratteri massimo consentito(:max)',
+            'sale_date' => 'La data in cui inizia lo sconto è obbligatoria',
+            'sale_date.date' => 'Il formato della data inserita non è valido, riprovare',
+            'type' => 'Il tipo di fumetto è obbligatorio',
+            'type.max' => 'Per il tipo di fumetto hai superato il limite di caratteri massimo consentito(:max)',
+            'artists' => 'Gli artisti sono obbligatori',
+            'artists.max' => 'Per gli artisti hai superato il limite di caratteri massimo consentito(:max)',
+            'writers' => 'Gli scrittori sono obbligatori',
+            'writers.max' => 'Per gli scrittori hai superato il limite di caratteri massimo consentito(:max)',
         ]);
+
         $comic = new Comic();
         $comic->fill($comic_validate);
         $comic->save();
@@ -80,6 +100,25 @@ class ComicsController extends Controller
             'type' => 'required|max:50',
             'artists' => 'required|max:200',
             'writers' => 'required|max:200',
+        ], [
+            'title' => 'Il titolo è obbligatorio',
+            'title.max' => 'Per il titolo hai superato il limite di caratteri massimo consentito(:max)',
+            'description' => 'La descrizione è obbligatoria',
+            'description.max' => 'Per la descrizione hai superato il limite di caratteri massimo consentito(:max)',
+            'thumb' => 'L\'immagine è obbligatoria',
+            'thumb.url' => 'L\'immagine deve essere fornita come URL',
+            'price' => 'Il prezzo è obbligatorio',
+            'price.decimal' => 'Il prezzo deve essere fornito con :decimal decimali',
+            'series' => 'La serie del fumetto è obbligatoria',
+            'series.max' => 'Per la serie del fumetto hai superato il limite di caratteri massimo consentito(:max)',
+            'sale_date' => 'La data in cui inizia lo sconto è obbligatoria',
+            'sale_date.date' => 'Il formato della data inserita non è valido, riprovare',
+            'type' => 'Il tipo di fumetto è obbligatorio',
+            'type.max' => 'Per il tipo di fumetto hai superato il limite di caratteri massimo consentito(:max)',
+            'artists' => 'Gli artisti sono obbligatori',
+            'artists.max' => 'Per gli artisti hai superato il limite di caratteri massimo consentito(:max)',
+            'writers' => 'Gli scrittori sono obbligatori',
+            'writers.max' => 'Per gli scrittori hai superato il limite di caratteri massimo consentito(:max)',
         ]);
         $comic->update($comic_validate);
         return redirect()->route('comics.index');

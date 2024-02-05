@@ -18,7 +18,7 @@
             <form method="POST" action="{{ route('comics.store') }}">
                 @csrf
 
-                {{-- ERRORI LARAVEL --}}
+                {{-- ERRORI LARAVEL TUTTI --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -28,14 +28,14 @@
                         </ul>
                     </div>
                 @endif
-                {{-- ERRORI LARAVEL --}}
+                {{-- ERRORI LARAVEL TUTTI --}}
 
                 <div class="row">
                     <!-- TITOLO -->
                     <div class="mb-3 col">
                         <label for="title" class="form-label">Title</label>
-                        <input name="title" type="text" class="form-control" id="title" placeholder="Insert title"
-                            required value='{{ old('title') }}'>
+                        <input name="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                            id="title" placeholder="Insert title" required value='{{ old('title') }}'>
                     </div>
                     <!-- /TITOLO -->
                     <!-- SERIES -->
@@ -53,6 +53,15 @@
                     </div>
                     <!-- /TYPE -->
                 </div>
+                {{-- ERRORI SOLO PER IL CAMPO TITLE --}}
+                @error('title')
+                    @foreach ($errors->get('title') as $error)
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+                    @endforeach
+                @enderror
+                {{-- ERRORI SOLO PER IL CAMPO TITLE --}}
                 <div class="row">
                     <!-- THUMB -->
                     <div class="mb-3 col">

@@ -47,11 +47,23 @@
                     <!-- TYPE -->
                     <div class="mb-3 col">
                         <label for="type" class="form-label">Type</label>
-                        <input name="type" type="text" class="form-control" id="type" placeholder="Insert type"
-                            value="{{ old('type', $comic['type']) }}">
+                        <input name="type" type="text"
+                            class="form-control @error('type')
+                            is-invalid
+                        @enderror"
+                            id="type" placeholder="Insert type" value="{{ old('type', $comic['type']) }}">
                     </div>
                     <!-- /TYPE -->
                 </div>
+                {{-- ERRORI SOLO PER IL CAMPO TYPE --}}
+                @error('type')
+                    @foreach ($errors->get('type') as $error)
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+                    @endforeach
+                @enderror
+                {{-- ERRORI SOLO PER IL CAMPO TYPE --}}
                 <div class="row">
                     <!-- THUMB -->
                     <div class="mb-3 col">

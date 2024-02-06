@@ -26,6 +26,7 @@
                         <th>Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        <th>Axios</th>
                         {{-- <th>Prova</th> --}}
                     </tr>
                 </thead>
@@ -106,7 +107,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <!-- BUTTON CHE APRE LA MODALE -->
-                                    <div class="btn btn-danger my-button">Delet Comic</div>
+                                    <div class="btn btn-danger my-button">Delete</div>
                                     <!-- /BUTTON CHE APRE LA MODALE -->
                                     <!--  MODALE -->
                                     <div class="my-modale d-none" id="my-modale-{{ $loop->index }}">
@@ -131,6 +132,34 @@
                                 <!-- /FORM CANCELLAZIONE RIGA  -->
                             </td>
                             <!-- COLONNA CON FORM E MODALE CON MIO CSS E JS -->
+
+
+                            <!-- COLONNA CON  MODALE CON CHIAMATA AXIOS -->
+                            <td>
+                                <!-- BUTTON CHE APRE LA MODALE -->
+                                <div class="btn btn-secondary my-button-axios">Axios</div>
+                                <!-- /BUTTON CHE APRE LA MODALE -->
+                                <!--  MODALE -->
+                                <div class="my-modale d-none" id="my-modale-axios-{{ $loop->index }}">
+                                    <div class="my-alert p-4 rounded">
+                                        <div class="title d-flex justify-content-between">
+                                            <h5>Confirmation Comic Delete</h5>
+                                            <div class="btn-close" role="button"></div>
+                                        </div>
+                                        <p> Are you sure you want to delete {{ $comic['title'] }}?</p>
+                                        <div class=" text-end">
+                                            <!-- BUTTON CHE CHIUDE LA MODALE -->
+                                            <div class="btn btn-primary go-back py-1">No</div>
+                                            <!-- /BUTTON CHE CHIUDE LA MODALE -->
+                                            <!-- BUTTON CHE CHIAMA AXIOS PER CANCELLARE RIGA -->
+                                            <button class="btn btn-danger py-1 ms-2 delete">Yes</button>
+                                            <!-- /BUTTON CHE CHIAMA AXIOS PER PER CANCELLARE RIGA -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /MODALE -->
+                            </td>
+                            <!-- COLONNA CON MODALE CON CHIAMATA AXIOS -->
                         </tr>
                     @endforeach
                 </tbody>

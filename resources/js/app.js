@@ -126,3 +126,13 @@ buttons.forEach((button, index) => {
         }
     });
 });
+
+/*
+*
+*
+*
+CANCELLAZIONE RECORD COMIC CON JS E FORM CON RICARICA DELLA PAGINA FINE
+*
+*
+*
+*/

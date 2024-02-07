@@ -54,9 +54,7 @@ buttonsAxios.forEach((button, index) => {
     myYes.addEventListener("click", function () {
         // prendo l id della riga della tabella che voglio cancellare
         const id = tableDataId[index].innerHTML;
-        // chiamata axios per cancellare, poi rimuovo la riga dall HTML e poi chiudo modale
-        // il then mi da error 405 e non me lo esegue, usiamo il catch in maniera impropria
-        axios.delete(`/comics/${id}`).catch((error) => {
+        axios.post(`/comics/${id}`, { _method: "delete" }).then(() => {
             tableRow[++index].remove();
             myModale.classList.toggle("d-none");
         });
